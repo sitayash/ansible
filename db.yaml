@@ -9,12 +9,19 @@
       name: mysql-server
       state: latest
 
-  - name: start ad enable mysql server
+  - name: start and enable mysql server
     ansible.builtin.service:
       name: mysqld
       state: started
       enable: yes
-      
+
+  - name: install python mysql dependencies
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+      - cryptography
+      executable: pip3.9    
+
   - name: check db connection # check rootpassword setup or not
     community.mysql.mysql_info:
       login_user: root
