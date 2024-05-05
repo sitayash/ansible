@@ -5,8 +5,8 @@
     login_host: db.daws78s.store
   vars_prompt: 
   - name: mysql_root_password
-  prompt: please enter mysql root password
-  private: no  
+    prompt: please enter mysql root password
+    private: no  
   tasks:
   - name: Install mysql server
     ansible.builtin.dnf:
